@@ -21,14 +21,11 @@ return new class extends Migration
             $table->date('from_date');
             $table->date('to_date');
             $table->date('date_returned')->nullable();
-            $table->integer('unit');
-            $table->decimal('price_per_unit', 8, 2);
-            $table->decimal('total_price', 8, 2);
             $table->timestamps();
 
 
-            $table->foreign('item_id')->references('id')->on('items');
-            $table->foreign('renter_id')->references('id')->on('users');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->foreign('renter_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

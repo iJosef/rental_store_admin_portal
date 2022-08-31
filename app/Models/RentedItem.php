@@ -9,6 +9,8 @@ class RentedItem extends Model
 {
     use HasFactory;
 
+    public $with = ['item'];
+
     /**
      * Get the item that owns the RentedItem
      *

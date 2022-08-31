@@ -18,12 +18,11 @@ return new class extends Migration
             $table->string('item_name', 100);
             $table->bigInteger('item_type_id')->unsigned();
             $table->text('description')->nullable();
-            $table->decimal('price_per_unit', 8, 2);
             $table->boolean('available')->default(true);
             $table->timestamps();
 
 
-            $table->foreign('item_type_id')->references('id')->on('item_types');
+            $table->foreign('item_type_id')->references('id')->on('item_types')->onDelete('cascade');
         });
     }
 

@@ -26,7 +26,6 @@ class StoreItemRequest extends FormRequest
         return [
             'item_name' => 'required',
             'item_type_id' => 'required|integer',
-            'price_per_unit' => 'required|numeric|between:0,9999999999.99',
         ];
     }
 }

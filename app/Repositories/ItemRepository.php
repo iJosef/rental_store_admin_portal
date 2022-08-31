@@ -12,7 +12,6 @@ class ItemRepository implements ItemRepositoryInterface
         $new_item->item_name        = request()->item_name;
         $new_item->item_type_id     = request()->item_type_id;
         $new_item->description      = request()->description;
-        $new_item->price_per_unit   = request()->price_per_unit;
         if ($new_item->save()) {
             $data = [
                 'status' => 'success',
@@ -71,7 +70,6 @@ class ItemRepository implements ItemRepositoryInterface
         $update_item->item_name        = request()->item_name;
         $update_item->item_type_id     = request()->item_type_id;
         $update_item->description      = request()->description;
-        $update_item->price_per_unit   = request()->price_per_unit;
         if ($update_item->update()) {
             $data = [
                 'status' => 'success',
