@@ -25,7 +25,7 @@ class ItemTest extends TestCase
     }
 
     /**
-     * Test for creating a new item
+     * Test for required item name
      *
      * @return void
      */
@@ -41,7 +41,7 @@ class ItemTest extends TestCase
     }
 
     /**
-     * Test for creating a new item
+     * Test for required item type
      *
      * @return void
      */
@@ -57,7 +57,7 @@ class ItemTest extends TestCase
     }
 
     /**
-     * Test for creating a new item
+     * Test for updating a new item
      *
      * @return void
      */
