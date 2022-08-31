@@ -22,6 +22,7 @@ class RentedItemFactory extends Factory
     {
         $from = Carbon::instance($this->faker->dateTimeBetween('-1 months', '+1 months'));
         $to = (clone $from)->addDays(random_int(0, 14));
+        $returned_date = (clone $from)->addDays(random_int(2, 14));
 
         return [
             'item_id'  => Item::inRandomOrder()->first()->id,
@@ -29,7 +30,7 @@ class RentedItemFactory extends Factory
             'rental_code' => 'IT'.rand(1000,9999),
             'from_date' => $from,
             'to_date' => $to,
-            'date_returned' => $this->faker->randomElement([$to, Null]),
+            'date_returned' => $this->faker->randomElement([$returned_date, Null]),
         ];
     }
 }

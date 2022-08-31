@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Repositories\ItemRepository;
-use App\Repositories\ItemRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\RentedItemRepository;
+use App\Repositories\ItemRepositoryInterface;
+use App\Repositories\RentedItemRepositoryInterface;
 
 class RepositoriesServiceProvider extends ServiceProvider
 {
@@ -26,5 +28,6 @@ class RepositoriesServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(ItemRepositoryInterface::class, ItemRepository::class);
+        $this->app->bind(RentedItemRepositoryInterface::class, RentedItemRepository::class);
     }
 }
