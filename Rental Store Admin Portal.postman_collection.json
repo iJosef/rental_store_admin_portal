@@ -1,0 +1,649 @@
+{
+	"info": {
+		"_postman_id": "3d6187e2-e166-4004-8f09-284d9df9e0e8",
+		"name": "Rental Store Admin Portal",
+		"description": "A simple admin portal api for rental store that allows the store owner to create items and track renting activity of users.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9049481"
+	},
+	"item": [
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Add new Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"item_name\" : \"Shovel\",\n  \"item_type_id\": \"2\",\n  \"description\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8300/api/store-item",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8300",
+							"path": [
+								"api",
+								"store-item"
+							]
+						},
+						"description": "Endpoint for adding new items to the store.\n\n| Field | Datatype | **Description** | Required |\n| --- | --- | --- | --- |\n| item_name | string | Name of item | True |\n| item_type_id | integer | Type of item; can either be 1 (Books) or 2 (Equipment) | True |\n| description | text | Summary about item | False |"
+					},
+					"response": [
+						{
+							"name": "Add new Item",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"item_name\" : \"Shovel\",\n  \"item_type_id\": \"2\",\n  \"description\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:8300/api/store-item",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8300",
+									"path": [
+										"api",
+										"store-item"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8300"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:09:37 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:09:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Item saved successfully\",\n    \"item\": {\n        \"item_name\": \"Shovel\",\n        \"item_type_id\": \"2\",\n        \"description\": null,\n        \"updated_at\": \"2022-09-01T09:09:37.000000Z\",\n        \"created_at\": \"2022-09-01T09:09:37.000000Z\",\n        \"id\": 31\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8300/api/get-items",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8300",
+							"path": [
+								"api",
+								"get-items"
+							]
+						},
+						"description": "Endpoint for fetching all items"
+					},
+					"response": [
+						{
+							"name": "Get all items",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "127.0.0.1:8300/api/get-items",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8300",
+									"path": [
+										"api",
+										"get-items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8300"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:10:47 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:10:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"item_name\": \"Alias\",\n        \"item_type_id\": 2,\n        \"description\": \"Rem rerum sint quas ad voluptatem laboriosam.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"item_name\": \"Enim\",\n        \"item_type_id\": 1,\n        \"description\": \"Qui dicta optio consequatur quisquam qui et consectetur dolorem rerum.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 3,\n        \"item_name\": \"Debitis\",\n        \"item_type_id\": 2,\n        \"description\": \"Nam repudiandae autem nihil quia quibusdam.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"item_name\": \"Placeat\",\n        \"item_type_id\": 2,\n        \"description\": \"Et provident voluptate voluptas hic ipsam.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 5,\n        \"item_name\": \"Id\",\n        \"item_type_id\": 2,\n        \"description\": \"Repellendus ratione impedit quis occaecati modi hic qui explicabo et autem magnam eius.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 6,\n        \"item_name\": \"Excepturi\",\n        \"item_type_id\": 2,\n        \"description\": \"Mollitia fuga recusandae aut qui quaerat et animi incidunt voluptas odit ab non voluptas.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 7,\n        \"item_name\": \"Consequatur\",\n        \"item_type_id\": 1,\n        \"description\": \"Officiis sint cumque quis rerum eius ut.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 8,\n        \"item_name\": \"Velit\",\n        \"item_type_id\": 1,\n        \"description\": \"Omnis eos modi expedita quas velit qui ea.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 9,\n        \"item_name\": \"Corrupti\",\n        \"item_type_id\": 1,\n        \"description\": \"Harum rerum sed necessitatibus voluptas ipsa qui illo ut.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 10,\n        \"item_name\": \"Est\",\n        \"item_type_id\": 1,\n        \"description\": \"Necessitatibus consequatur debitis qui qui facilis ducimus aperiam.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 11,\n        \"item_name\": \"Earum\",\n        \"item_type_id\": 2,\n        \"description\": \"Et sit magnam voluptatem atque laborum iure laborum fugit.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 12,\n        \"item_name\": \"Non\",\n        \"item_type_id\": 1,\n        \"description\": \"Non qui enim at adipisci placeat quo nemo illo magnam totam ipsam.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 13,\n        \"item_name\": \"Ex\",\n        \"item_type_id\": 1,\n        \"description\": \"Deleniti illo eum sint id eveniet qui et fugiat recusandae.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 14,\n        \"item_name\": \"Qui\",\n        \"item_type_id\": 2,\n        \"description\": \"Sed dolorem ea fugiat quia.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 15,\n        \"item_name\": \"Aperiam\",\n        \"item_type_id\": 2,\n        \"description\": \"Voluptatem repellendus molestias omnis.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 16,\n        \"item_name\": \"Odit\",\n        \"item_type_id\": 1,\n        \"description\": \"Ducimus dolores illum quia non corrupti.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 17,\n        \"item_name\": \"Sed\",\n        \"item_type_id\": 1,\n        \"description\": \"Et rerum et ea magnam quos rem dolore iure.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 18,\n        \"item_name\": \"Placeat\",\n        \"item_type_id\": 2,\n        \"description\": \"Iste quidem praesentium temporibus laudantium explicabo quis aut nisi.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 19,\n        \"item_name\": \"Et\",\n        \"item_type_id\": 2,\n        \"description\": \"Sed officia dignissimos optio animi eligendi nam modi.\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 20,\n        \"item_name\": \"Ex\",\n        \"item_type_id\": 1,\n        \"description\": \"Totam eaque quasi modi unde accusamus necessitatibus facere.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 21,\n        \"item_name\": \"Hoe\",\n        \"item_type_id\": 2,\n        \"description\": null,\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:55:35.000000Z\",\n        \"updated_at\": \"2022-08-31T14:55:35.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 22,\n        \"item_name\": \"Think like a man\",\n        \"item_type_id\": 1,\n        \"description\": \"A book by Steve Harvey\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T16:09:00.000000Z\",\n        \"updated_at\": \"2022-08-31T16:09:00.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 23,\n        \"item_name\": \"Stay alive all your life\",\n        \"item_type_id\": 1,\n        \"description\": \"A book by Norman Vincent Peale\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T16:09:25.000000Z\",\n        \"updated_at\": \"2022-08-31T16:26:39.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 24,\n        \"item_name\": \"Think like a man\",\n        \"item_type_id\": 1,\n        \"description\": \"A book by Steve Harvey\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T16:09:40.000000Z\",\n        \"updated_at\": \"2022-08-31T16:09:40.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 25,\n        \"item_name\": \"Think like a man\",\n        \"item_type_id\": 1,\n        \"description\": \"A book by Steve Harvey\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T16:11:55.000000Z\",\n        \"updated_at\": \"2022-08-31T16:11:55.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 26,\n        \"item_name\": \"Think like a man\",\n        \"item_type_id\": 1,\n        \"description\": \"A book by Steve Harvey\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T16:14:42.000000Z\",\n        \"updated_at\": \"2022-08-31T16:14:42.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 27,\n        \"item_name\": \"Think like a man\",\n        \"item_type_id\": 1,\n        \"description\": \"A book by Steve Harvey\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T16:26:39.000000Z\",\n        \"updated_at\": \"2022-08-31T16:26:39.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 28,\n        \"item_name\": \"Think like a man\",\n        \"item_type_id\": 1,\n        \"description\": \"A book by Steve Harvey\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T16:38:18.000000Z\",\n        \"updated_at\": \"2022-08-31T16:38:18.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 29,\n        \"item_name\": \"Think like a man\",\n        \"item_type_id\": 1,\n        \"description\": \"A book by Steve Harvey\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T16:42:15.000000Z\",\n        \"updated_at\": \"2022-08-31T16:42:15.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 30,\n        \"item_name\": \"Shovel\",\n        \"item_type_id\": 2,\n        \"description\": null,\n        \"available\": 1,\n        \"created_at\": \"2022-09-01T09:08:27.000000Z\",\n        \"updated_at\": \"2022-09-01T09:08:27.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    },\n    {\n        \"id\": 31,\n        \"item_name\": \"Shovel\",\n        \"item_type_id\": 2,\n        \"description\": null,\n        \"available\": 1,\n        \"created_at\": \"2022-09-01T09:09:37.000000Z\",\n        \"updated_at\": \"2022-09-01T09:09:37.000000Z\",\n        \"item_type\": {\n            \"id\": 2,\n            \"type\": \"Equipment\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update an item",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"item_name\" : \"Stay Alive All Your Life\",\n  \"item_type_id\": \"1\",\n  \"description\": \"A book by Vincent Peale\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8300/api/update-item/3",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8300",
+							"path": [
+								"api",
+								"update-item",
+								"3"
+							]
+						},
+						"description": "Endpoint for updating a item\n\n| **Params** | **Datatype** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| item_id | integer | ID of item to be updated | True |\n\n| Field | Datatype | **Description** | Required |\n| --- | --- | --- | --- |\n| item_name | string | Name of item | True |\n| item_type_id | integer | Type of item; can either be 1 (Books) or 2 (Equipment) | True |\n| description | text | Summary about item | False |"
+					},
+					"response": [
+						{
+							"name": "Update an item",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"item_name\" : \"Stay Alive All Your Life\",\n  \"item_type_id\": \"1\",\n  \"description\": \"A book by Vincent Peale\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:8300/api/update-item/3",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8300",
+									"path": [
+										"api",
+										"update-item",
+										"3"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8300"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 11:36:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 11:36:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Item updated successfully\",\n    \"item\": {\n        \"id\": 3,\n        \"item_name\": \"Stay Alive All Your Life\",\n        \"item_type_id\": \"1\",\n        \"description\": \"A book by Vincent Peale\",\n        \"available\": 1,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-09-01T09:15:27.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8300/api/get-item/2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8300",
+							"path": [
+								"api",
+								"get-item",
+								"2"
+							]
+						},
+						"description": "Endpoint to get a particular ID\n\n| **Params** | **Datatype** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| item_id | integer | ID of item to be fetched | True |"
+					},
+					"response": [
+						{
+							"name": "Get an item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "127.0.0.1:8300/api/get-item/2",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8300",
+									"path": [
+										"api",
+										"get-item",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8300"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:12:42 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:12:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"items fetched successfully\",\n    \"items\": {\n        \"id\": 2,\n        \"item_name\": \"Enim\",\n        \"item_type_id\": 1,\n        \"description\": \"Qui dicta optio consequatur quisquam qui et consectetur dolorem rerum.\",\n        \"available\": 0,\n        \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"updated_at\": \"2022-08-31T14:46:30.000000Z\",\n        \"item_type\": {\n            \"id\": 1,\n            \"type\": \"Books\",\n            \"created_at\": \"2022-08-31T14:46:30.000000Z\",\n            \"updated_at\": \"2022-08-31T14:46:30.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete an item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8300/api/delete-item/5",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8300",
+							"path": [
+								"api",
+								"delete-item",
+								"5"
+							]
+						},
+						"description": "Endpoint to delete a particular item\n\n| **Params** | **Datatype** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| item_id | integer | ID of item to be deleted | True |"
+					},
+					"response": [
+						{
+							"name": "Delete an item",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "127.0.0.1:8300/api/delete-item/5",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8300",
+									"path": [
+										"api",
+										"delete-item",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8300"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:16:52 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:16:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Item deleted successfully\"\n}"
+						}
+					]
+				}
+			],
+			"description": "CRUD endpoints for items in the rental store"
+		},
+		{
+			"name": "Rental statistics log",
+			"item": [
+				{
+					"name": "Statistics of rented items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8300/api/fetch-rental-stat/from/2022-08-30/to/2022-08-31",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8300",
+							"path": [
+								"api",
+								"fetch-rental-stat",
+								"from",
+								"2022-08-30",
+								"to",
+								"2022-08-31"
+							]
+						},
+						"description": "Endpoint to fetch the statistics log of renting activity of users over a period of time\n\n| **Params** | **Datatype** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| from_date | date | Start date of data timeframe | True |\n| to_date | date | End date of data timeframe | True |"
+					},
+					"response": [
+						{
+							"name": "Statistics of rented items",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "127.0.0.1:8300/api/fetch-rental-stat/from/2022-08-30/to/2022-08-31",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8300",
+									"path": [
+										"api",
+										"fetch-rental-stat",
+										"from",
+										"2022-08-30",
+										"to",
+										"2022-08-31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8300"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:19:36 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Sep 2022 09:19:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"data fetched successfully\",\n    \"total_rented_books\": 23,\n    \"total_returned_books\": 33,\n    \"total_rented_equipment\": 17,\n    \"total_returned_equipment\": 23\n}"
+						}
+					]
+				}
+			],
+			"description": "Statistics log of renting activity by users."
+		}
+	]
+}
