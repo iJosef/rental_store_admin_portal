@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get all of the rented_items for the Item
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function rented_items()
+    {
+        return $this->hasMany(RentedItem::class);
+    }
 }

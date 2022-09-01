@@ -1,64 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Rental Store Admin Portal
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Introduction
 
-## About Laravel
+A simple rental store admin portal. The store rents out books and equipment to users. The store owner is interested in the logs of renting activity by users.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Table of Contents
+1. <a href="#how-it-works">How it works</a>
+2. <a href="#technology-stack">Technology Stack</a>
+3. <a href="#functionalities">Functionalities</a>
+4. <a href="#routes">Routes</a>
+5. <a href="#setup">Setup</a>
+6. <a href="#extras">Extras</a>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Technology Stack
+  - [PHP](https://www.php.net)
+  - [Laravel](https://laravel.com)
+  - [MySQL](https://www.mysql.com/)
+  ### Testing tools
+  - [PHPUnit](https://phpunit.de) 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Functionalities
+* Create CRUD endpoints for books and equipment
+* Create endpoint to fetch the following statistics over a period of time (e.g. month or a year)
+using the logs:
+- Total books rented
+- Total books returned
+- Total equipment rented
+- Total equipment returned
+* Create a script to generate logs
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Routes
 
-## Laravel Sponsors
+### Base URL = http://127.0.0.1:8300/
+Available routes and guide
+Method | Route | Description | Payload
+--- | --- | ---|---
+`POST` | `/api/store-item` | add new item | item_name, item_type_id and description
+`GET` | `/api/get-items` | get all items | 
+`GET` | `/api/get-item/{item_id}` | get a particular item | item_id
+`PATCH` | `/api/update-item/{item_id}` | update a particular item | item_id, item_name, item_type_id and description
+`DELETE` | `/api/delete-item/{item_id}` | delete a particular item | item_id
+`GET` | `/api/fetch-rental-stat/from/{from_date}/to/{to_date}` | fetch renting activity of a period of time | from_date and to_date
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Setup
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Premium Partners
+  #### Getting Started
+  - Open terminal and run the following commands
+    ```
+    $ git clone https://github.com/iJosef/rental_store_admin_portal.git
+    $ cd rental_store_admin_portal
+    $ composer install
+    ```
+    - copy .env.example and paste in .env file
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    ```
+    $ php artisan key:generate
+    $ php artisan migrate --seed
+    $ php artisan serve --port=8300
+    ```
+    If all goes well 
+  - Visit http://127.0.0.1:8300 on your browser to view laravel home
+  
+  if Seeding goes well, you should be able to start running the tests
+  ### Testing
+  ```
+  $ php artisan test
+  ```
+  If correctly setup, all tests should pass
 
-## Contributing
+## Extras
+    
+  Location of ERD file and Postman COllection file
+  - [Database ERD](/rental_store_database_erd.drawio.html)
+  - [Postman COllection](/Rental_Store_Admin_Portal.postman_collection.json)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+  
