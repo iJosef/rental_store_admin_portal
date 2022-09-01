@@ -72,9 +72,9 @@ These instructions will get you a copy of the project up and running on your loc
   If correctly setup, all tests should pass
 
 ## Extras
-
-    ### Location of ERD file and Postman file
-    - [Database ERD](/rental_store_database_erd.drawio.html)
-    - [Postman Collection](/Rental%20Store%20Admin%20Portal.postman_collection.json)
     
+  Location of ERD file and Postman COllection file
+  - [Database ERD](/rental_store_database_erd.drawio.html)
+  - [Postman COllection](/Rental_Store_Admin_Portal.postman_collection.json)
+
   
